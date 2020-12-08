@@ -1,6 +1,6 @@
 # Objective
 
-Phone bill has been a pain for so long as some would agree that cost for such as been increasing over the couple of years. But the good thing is we have internet almost everywhere in cafes, restaurants, shops etc. and most times free or open the public. Why can't we take advantage of that. Free Mobile Linking FML is an online based VoIP application that helps to cut down those annoying phine bills. Simply connect to the internet and make phone calls on the fly as well as text. 
+Phone bill has been a pain for so long as some would agree that cost for such as been increasing over the couple of years. But the good thing is we have internet almost everywhere in cafes, restaurants, shops etc. and most times free or open the public. Why can't we take advantage of that. Free Mobile Linking FML is an online based VoIP application that helps to cut down those annoying phone bills. Simply connect to the internet and make phone calls on the fly as well as text. 
 
   
 
