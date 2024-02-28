@@ -1,6 +1,6 @@
 name: terraform
 on:
-  pull_request:
+  pull_request: []
 
 jobs:
   auto-approve-pr:
@@ -22,8 +22,8 @@ jobs:
             });
   
             if (response.status !== 200) {
-              throw new Error(Failed to approve PR #${prNumber}: ${response.status});
+              throw new Error(`Failed to approve PR #${prNumber}: ${response.status}`);
             }
   
-            console.log(Pull request #${prNumber} approved.);
+            console.log(`Pull request #${prNumber} approved.`);
           github-token: ${{ secrets.FPSB_PAT }}
