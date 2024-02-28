@@ -1,11 +1,13 @@
 name: terraform
 on:
-  pull_request: []
+  pull_request: 
+    types: [ labeled ]
 
 jobs:
   auto-approve-pr:
     permissions:
       pull-requests: write
+    if: ${{ (github.event.label.name == 'platform-eks-builder') && (github.actor == 'neeyoma') }}
     runs-on: ubuntu-latest
     steps:
       - name: Automatically approve PR
@@ -18,7 +20,7 @@ jobs:
               repo: context.repo.repo,
               pull_number: prNumber,
               event: 'APPROVE',
-              body: 'Automatically approved by fpsb.'
+              body: 'Automatically approved by flipp platform service builder.'
             });
   
             if (response.status !== 200) {
