@@ -1,0 +1,29 @@
+name: terraform
+on:
+  pull_request:
+
+jobs:
+  auto-approve-pr:
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Automatically approve PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const response = await github.rest.pulls.createReview({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              event: 'APPROVE',
+              body: 'Automatically approved by fpsb.'
+            });
+  
+            if (response.status !== 200) {
+              throw new Error(Failed to approve PR #${prNumber}: ${response.status});
+            }
+  
+            console.log(Pull request #${prNumber} approved.);
+          github-token: ${{ secrets.FPSB_PAT }}
