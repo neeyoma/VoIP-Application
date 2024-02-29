@@ -11,21 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Automatically approve PR
-        uses: actions/github-script@v7
+        uses: hmarr/auto-approve-action@v3
         with:
-          script: |
-            const prNumber = context.payload.pull_request.number;
-            const response = await github.rest.pulls.createReview({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: prNumber,
-              event: 'APPROVE',
-              body: 'Automatically approved by flipp platform service builder.'
-            });
-  
-            if (response.status !== 200) {
-              throw new Error(`Failed to approve PR #${prNumber}: ${response.status}`);
-            }
-  
-            console.log(`Pull request #${prNumber} approved.`);
+          pull-request-number: ${{ github.event.pull_request.number }}
           github-token: ${{ secrets.FPSB_PAT }}
